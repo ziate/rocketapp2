@@ -1,0 +1,22 @@
+[19-Jan-2026 11:49:08 America/Chicago] PHP Warning:  Version warning: Imagick was compiled against ImageMagick version 1692 but version 1693 is loaded. Imagick will run but may behave surprisingly in Unknown on line 0
+[19-Jan-2026 11:49:24 America/Chicago] PHP Warning:  Version warning: Imagick was compiled against ImageMagick version 1692 but version 1693 is loaded. Imagick will run but may behave surprisingly in Unknown on line 0
+[19-Jan-2026 11:49:24 America/Chicago] PHP Warning:  require(/home/alnouzha/erp.alnouzha.com/rocketapp2/vendor/autoload.php): Failed to open stream: No such file or directory in /home/alnouzha/erp.alnouzha.com/rocketapp2/artisan on line 10
+[19-Jan-2026 11:49:24 America/Chicago] PHP Warning:  require(/home/alnouzha/erp.alnouzha.com/rocketapp2/vendor/autoload.php): Failed to open stream: No such file or directory in /home/alnouzha/erp.alnouzha.com/rocketapp2/artisan on line 10
+[19-Jan-2026 11:49:24 America/Chicago] PHP Fatal error:  Uncaught Error: Failed opening required '/home/alnouzha/erp.alnouzha.com/rocketapp2/vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/alnouzha/erp.alnouzha.com/rocketapp2/artisan:10
+Stack trace:
+#0 {main}
+  thrown in /home/alnouzha/erp.alnouzha.com/rocketapp2/artisan on line 10
+[19-Jan-2026 11:51:50 America/Chicago] PHP Warning:  Version warning: Imagick was compiled against ImageMagick version 1692 but version 1693 is loaded. Imagick will run but may behave surprisingly in Unknown on line 0
+[19-Jan-2026 11:51:59 America/Chicago] PHP Warning:  Version warning: Imagick was compiled against ImageMagick version 1692 but version 1693 is loaded. Imagick will run but may behave surprisingly in Unknown on line 0
+[19-Jan-2026 11:51:59 America/Chicago] PHP Warning:  Version warning: Imagick was compiled against ImageMagick version 1692 but version 1693 is loaded. Imagick will run but may behave surprisingly in Unknown on line 0
+[19-Jan-2026 11:52:06 America/Chicago] PHP Warning:  Version warning: Imagick was compiled against ImageMagick version 1692 but version 1693 is loaded. Imagick will run but may behave surprisingly in Unknown on line 0
+[19-Jan-2026 11:54:32 America/Chicago] PHP Warning:  Version warning: Imagick was compiled against ImageMagick version 1692 but version 1693 is loaded. Imagick will run but may behave surprisingly in Unknown on line 0
+[19-Jan-2026 11:56:15 America/Chicago] PHP Warning:  Version warning: Imagick was compiled against ImageMagick version 1692 but version 1693 is loaded. Imagick will run but may behave surprisingly in Unknown on line 0
+[19-Jan-2026 11:56:37 America/Chicago] PHP Warning:  Version warning: Imagick was compiled against ImageMagick version 1692 but version 1693 is loaded. Imagick will run but may behave surprisingly in Unknown on line 0
+[19-Jan-2026 11:56:41 America/Chicago] PHP Warning:  Version warning: Imagick was compiled against ImageMagick version 1692 but version 1693 is loaded. Imagick will run but may behave surprisingly in Unknown on line 0
+[19-Jan-2026 11:57:06 America/Chicago] PHP Warning:  Version warning: Imagick was compiled against ImageMagick version 1692 but version 1693 is loaded. Imagick will run but may behave surprisingly in Unknown on line 0
+[19-Jan-2026 11:57:53 America/Chicago] PHP Warning:  Version warning: Imagick was compiled against ImageMagick version 1692 but version 1693 is loaded. Imagick will run but may behave surprisingly in Unknown on line 0
+[19-Jan-2026 11:57:59 America/Chicago] PHP Warning:  Version warning: Imagick was compiled against ImageMagick version 1692 but version 1693 is loaded. Imagick will run but may behave surprisingly in Unknown on line 0
+[19-Jan-2026 11:57:59 America/Chicago] PHP Warning:  Version warning: Imagick was compiled against ImageMagick version 1692 but version 1693 is loaded. Imagick will run but may behave surprisingly in Unknown on line 0
+[19-Jan-2026 11:58:21 America/Chicago] PHP Warning:  PHP Startup: session.gc_divisor must be greater than 0 in Unknown on line 0
+[19-Jan-2026 11:58:54 America/Chicago] PHP Warning:  PHP Startup: session.gc_divisor must be greater than 0 in Unknown on line 0

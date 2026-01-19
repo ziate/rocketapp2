@@ -1,80 +1,76 @@
 @extends('layouts.app')
 
+@section('title', 'إدارة المستخدمين')
+
 @section('content')
-<div class="py-12">
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <!-- Header -->
-        <div class="flex justify-between items-center mb-8">
-            <div>
-                <h1 class="text-3xl font-bold text-gray-900 dark:text-white">إدارة المستخدمين</h1>
-                <p class="text-gray-600 dark:text-gray-400 mt-2">إدارة المسؤولين والموظفين</p>
-            </div>
-            <a href="{{ route('users.create') }}" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition">
-                إضافة مستخدم جديد
-            </a>
-        </div>
+<div class="row mb-4 align-items-center">
+    <div class="col-md-6">
+        <h2 class="fw-bold text-dark mb-1">إدارة المستخدمين</h2>
+        <p class="text-muted">إدارة المسؤولين والموظفين في النظام</p>
+    </div>
+    <div class="col-md-6 text-md-end">
+        <a href="{{ route('users.create') }}" class="btn btn-primary shadow-sm">
+            <i class="fas fa-user-plus me-1"></i> إضافة مستخدم جديد
+        </a>
+    </div>
+</div>
 
-        <!-- Success Message -->
-        @if(session('status'))
-            <div class="mb-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
-                {{ session('status') }}
-            </div>
-        @endif
-
-        <!-- Users Table -->
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden">
-            <div class="overflow-x-auto">
-                <table class="w-full">
-                    <thead class="bg-gray-50 dark:bg-gray-700">
+<div class="card shadow-sm border-0">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="bg-light text-muted">
+                    <tr>
+                        <th class="px-4 py-3">الاسم</th>
+                        <th class="px-4 py-3">البريد الإلكتروني</th>
+                        <th class="px-4 py-3">الدور</th>
+                        <th class="px-4 py-3">تاريخ الإنشاء</th>
+                        <th class="px-4 py-3 text-center">الإجراءات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse($users as $user)
                         <tr>
-                            <th class="px-6 py-3 text-right text-xs font-medium text-gray-700 dark:text-gray-300 uppercase">الاسم</th>
-                            <th class="px-6 py-3 text-right text-xs font-medium text-gray-700 dark:text-gray-300 uppercase">البريد الإلكتروني</th>
-                            <th class="px-6 py-3 text-right text-xs font-medium text-gray-700 dark:text-gray-300 uppercase">الدور</th>
-                            <th class="px-6 py-3 text-right text-xs font-medium text-gray-700 dark:text-gray-300 uppercase">تاريخ الإنشاء</th>
-                            <th class="px-6 py-3 text-right text-xs font-medium text-gray-700 dark:text-gray-300 uppercase">الإجراءات</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-                        @forelse($users as $user)
-                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
-                                <td class="px-6 py-4 text-sm text-gray-900 dark:text-white">{{ $user->name }}</td>
-                                <td class="px-6 py-4 text-sm text-gray-900 dark:text-white">{{ $user->email }}</td>
-                                <td class="px-6 py-4 text-sm">
-                                    <span class="px-2 py-1 rounded-full text-xs font-semibold
-                                        @if($user->role === 'admin') bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200
-                                        @else bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200
-                                        @endif">
-                                        {{ $user->role === 'admin' ? 'مسؤول' : 'موظف' }}
-                                    </span>
-                                </td>
-                                <td class="px-6 py-4 text-sm text-gray-900 dark:text-white">{{ $user->created_at->format('Y-m-d') }}</td>
-                                <td class="px-6 py-4 text-sm space-x-2">
-                                    <a href="{{ route('users.edit', $user) }}" class="text-blue-600 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300">
-                                        تعديل
+                            <td class="px-4 py-3 fw-bold text-dark">{{ $user->name }}</td>
+                            <td class="px-4 py-3 text-muted">{{ $user->email }}</td>
+                            <td class="px-4 py-3">
+                                @if($user->role === 'admin')
+                                    <span class="badge bg-danger-subtle text-danger px-3 py-2 rounded-pill">مسؤول</span>
+                                @else
+                                    <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill">موظف</span>
+                                @endif
+                            </td>
+                            <td class="px-4 py-3 text-muted">{{ $user->created_at->format('Y-m-d') }}</td>
+                            <td class="px-4 py-3 text-center">
+                                <div class="btn-group shadow-sm">
+                                    <a href="{{ route('users.edit', $user) }}" class="btn btn-sm btn-outline-primary" title="تعديل">
+                                        <i class="fas fa-edit"></i>
                                     </a>
-                                    <form action="{{ route('users.destroy', $user) }}" method="POST" class="inline" onsubmit="return confirm('هل أنت متأكد؟')">
+                                    <form action="{{ route('users.destroy', $user) }}" method="POST" class="d-inline" onsubmit="return confirm('هل أنت متأكد من حذف هذا المستخدم؟')">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="text-red-600 hover:text-red-900 dark:text-red-400 dark:hover:text-red-300">
-                                            حذف
+                                        <button type="submit" class="btn btn-sm btn-outline-danger" title="حذف">
+                                            <i class="fas fa-trash"></i>
                                         </button>
                                     </form>
-                                </td>
-                            </tr>
-                        @empty
-                            <tr>
-                                <td colspan="5" class="px-6 py-4 text-center text-gray-500 dark:text-gray-400">لا توجد مستخدمين</td>
-                            </tr>
-                        @endforelse
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- Pagination -->
-        <div class="mt-6">
-            {{ $users->links() }}
+                                </div>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="5" class="px-4 py-5 text-center text-muted">
+                                <i class="fas fa-users fa-3x mb-3 opacity-25"></i>
+                                <p class="mb-0">لا يوجد مستخدمين حالياً</p>
+                            </td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
         </div>
     </div>
+</div>
+
+<div class="mt-4">
+    {{ $users->links('pagination::bootstrap-5') }}
 </div>
 @endsection
